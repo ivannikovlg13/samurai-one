@@ -1,7 +1,7 @@
 import React from 'react'
 import s from './navbar.module.css'
 
-export const NavBar = () => {
+const NavBar = () => {
   return(
     <nav className = {s.navbar} >
       <div className = {`${s.item} ${s.active}`} >
@@ -22,4 +22,6 @@ export const NavBar = () => {
     </nav>
     )
 }
+
+export default NavBar
 
