@@ -4,11 +4,9 @@
   text-align: center;
   padding: 20px 0;
 }
-a{
-  text-decoration: none;
-  color:#fff;
-  
+.item  {
+  color:white;
 }
-div + div{
-  margin-top: 20px;
+.item.active {
+  color:gold;
 }
