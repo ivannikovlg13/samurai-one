@@ -1,6 +1,4 @@
-a{
-  text-decoration: none;
-}
+
 .wrapper{
   width:1200px;
   margin: 0 auto;
@@ -10,4 +8,9 @@ a{
   grid-template-rows: 60px 1fr;
   grid-template-columns: 2fr 10fr;
   gap:20px;                    
+}
+.wrapper-content{
+  grid-area: p;
+  background-color:tomato;
+  padding: 20px;
 }
