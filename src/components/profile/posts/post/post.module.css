@@ -1,6 +1,13 @@
 .item{
-  color:whitesmoke;
+  color:black;
+  margin-bottom: 20px;
 }
 .item img{
   width: 70px;
+  margin-right: 20px;
+  margin-bottom: 10px;
+}
+.wrapper{
+  display: flex;
+  align-items: center;
 }

@@ -1,6 +1,6 @@
 .navbar{
   grid-area:s;
-  background-color:lightseagreen;
+  background-color:blue;
   text-align: center;
   padding: 20px;
 }
@@ -9,5 +9,5 @@
   text-decoration: none;
 }
 .item a.active {
-  color:gold;
+  font-weight: 700;
 }

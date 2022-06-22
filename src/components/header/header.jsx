@@ -4,7 +4,7 @@ import s from './header.module.css'
 const Header = () => {
   return(
     <nav className = {s.header}>
-      <img src="https://brandmark.io/logo-rank/random/bp.png" alt="logo" />
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSOpMCT1eZl3s8OxKjZwFpRbAeWzJGTLW_Gw&usqp=CAU" alt="logo" />
     </nav>
     )
 }

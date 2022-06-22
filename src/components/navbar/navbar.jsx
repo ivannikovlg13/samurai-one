@@ -12,16 +12,13 @@ const NavBar = () => {
         <NavLink className={(navData) => navData.isActive ? s.active : ''} to="/dialogs" >Messages</NavLink>
       </div>
       <div className={s.item} >
-        <NavLink className={(navData) => navData.isActive ? s.active : ''} to="/news" style={({ isActive }) =>
-          (isActive ? { color: 'gold' } : { color: 'white' })}>News</NavLink>
+        <NavLink className={(navData) => navData.isActive ? s.active : ''} to="/news">News</NavLink>
       </div>
       <div className={s.item} >
-        <NavLink className={(navData) => navData.isActive ? s.active : ''}  to="/music" style={({ isActive }) =>
-          (isActive ? { color: 'gold' } : { color: 'white' })}>Music</NavLink>
+        <NavLink className={(navData) => navData.isActive ? s.active : ''}  to="/music">Music</NavLink>
       </div>
       <div className={s.item} >
-        <NavLink className={(navData) => navData.isActive ? s.active : ''} to="/settings" style={({ isActive }) =>
-          (isActive ? { color: 'gold' } : { color: 'white' })}>Settings</NavLink>
+        <NavLink className={(navData) => navData.isActive ? s.active : ''} to="/settings">Settings</NavLink>
       </div>
     </nav>
   )
