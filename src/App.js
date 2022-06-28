@@ -11,7 +11,7 @@ import './App.css';
 
 
 
-function App() {
+function App(props) {
   return (
     <BrowserRouter>
       <div className = "wrapper">
@@ -19,8 +19,8 @@ function App() {
         <NavBar/>
         <div className = "wrapper-content">
             <Routes>
-              <Route path = "/profile" element={<Profile />}/>
-              <Route path = "/dialogs/*" element={<Dialogs />}/> 
+              <Route path = "/profile" element={<Profile postData = {props.postData}/>}/>
+              <Route path = "/dialogs/*" element={<Dialogs  dialogs = {props.dialogs} messages = {props.messages}/>}/> 
               <Route path = "/news" element={<News />}/> 
               <Route path = "/music" element={<Music />}/> 
               <Route path = "/settings" element={<Settings />}/> 
