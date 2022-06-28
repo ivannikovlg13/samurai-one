@@ -11,5 +11,6 @@
 }
 .wrapper-content{
   grid-area: p;
-  border-left:1px solid blue;
+  border-left:2px solid blue;
+  border-top:2px solid blue;
 }
