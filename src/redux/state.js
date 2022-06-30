@@ -1,3 +1,5 @@
+import { rerenderTree } from "../render"
+
 const state = {
   dialogsPage: {
     dialogs: [{
@@ -13,7 +15,7 @@ const state = {
       {
         id: 3,
         name: 'Amelia',
-        avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQ102t4cU9N7FsLEM7zY5DrQEJAJzxybt2NQ&usqp=CAU',
+        avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvKWW5mUhFhH2VXdkADoYFRUro2k0wn2eNPA&usqp=CAU',
       },
       {
         id: 4,
@@ -36,28 +38,32 @@ const state = {
         icon: 'https://iconarchive.com/download/i94479/blackvariant/button-ui-system-apps/Messages-2.ico',
       },
       {
-        list: 'How are you?'
+        list: 'How are you?',
+        icon: 'https://iconarchive.com/download/i79770/hamzasaleem/stock/Messages.ico',
       },
       {
         list: 'I want to become a doctor',
         icon: 'https://iconarchive.com/download/i94479/blackvariant/button-ui-system-apps/Messages-2.ico',
       },
       {
-        list: 'Yo'
+        list: 'Yo',
+        icon: 'https://iconarchive.com/download/i79770/hamzasaleem/stock/Messages.ico',
       },
       {
         list: 'Yo2',
         icon: 'https://iconarchive.com/download/i94479/blackvariant/button-ui-system-apps/Messages-2.ico',
       },
       {
-        list: 'Yo3'
+        list: 'Yo3',
+        icon: 'https://iconarchive.com/download/i79770/hamzasaleem/stock/Messages.ico',
       },
       {
         list: 'Yo6',
         icon: 'https://iconarchive.com/download/i94479/blackvariant/button-ui-system-apps/Messages-2.ico',
       },
       {
-        list: 'Yo55'
+        list: 'Yo55',
+        icon: 'https://iconarchive.com/download/i79770/hamzasaleem/stock/Messages.ico',
       },
       {
         list: 'Yo66',
@@ -65,26 +71,79 @@ const state = {
       },
     ],
   },
-  ProfilePage: {
+  profilePage: {
     postData: [{
+        id:1,
         message: 'How are you?',
-        likesCount: 130
+        likesCount: 130,
+        img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHUg6Eeu3fdwd2GYFK_q0QVGCuowN3CbuyPo3x798pvx9f9FWs040ghDUx3kB-vUmnOng&usqp=CAU',
       },
       {
+        id:2,
         message: 'Iam Okey',
-        likesCount: 520
+        likesCount: 520,
+        img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHUg6Eeu3fdwd2GYFK_q0QVGCuowN3CbuyPo3x798pvx9f9FWs040ghDUx3kB-vUmnOng&usqp=CAU',
       },
       {
+        id:3,
         message: 'Blablabla',
-        likesCount: 777
+        likesCount: 777,
+        img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHUg6Eeu3fdwd2GYFK_q0QVGCuowN3CbuyPo3x798pvx9f9FWs040ghDUx3kB-vUmnOng&usqp=CAU',
       },
       {
+        id:4,
         message: 'Ululu',
-        likesCount: 123
+        likesCount: 123,
+        img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHUg6Eeu3fdwd2GYFK_q0QVGCuowN3CbuyPo3x798pvx9f9FWs040ghDUx3kB-vUmnOng&usqp=CAU',
       },
     ]
   },
+  navbarPage: {
+    friends: [{
+        userAvatar: 'https://dt2sdf0db8zob.cloudfront.net/wp-content/uploads/2019/12/9-Best-Online-Avatars-and-How-to-Make-Your-Own-for-Free-image1-5.png'
+      },
+      {
+        userAvatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVifs4CS5Nha_6eu3lapu55pAgkuAPwpz-UJgdH5sCqzF7rSiPDpj2bXWwCvau-92TJwY&usqp=CAU'
+      },
+      {
+        userAvatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrvQ-b7dNq5eQFTTMcUB7My6WTrOxf0ItkyDyUhQHodBMxPNDFgoAI3XbyIvQ4ix5I9hs&usqp=CAU',
+      },
+    ],
+    links: [{
+        name: 'Profile',
+        path: '/profile',
+      },
+      {
+        name: 'Dialogs',
+        path: '/dialogs',
+      },
+      {
+        name: 'News',
+        path: '/news',
+      },
+      {
+        name: 'Music',
+        path: '/music',
+      },
+      {
+        name: 'Settings',
+        path: '/settings',
+      },
 
+    ],
+  },
+
+}
+
+export let addPost = (postMessage) => {
+  let newPost = {
+    id:5,
+    message: postMessage,
+    likesCount:0,
+    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHUg6Eeu3fdwd2GYFK_q0QVGCuowN3CbuyPo3x798pvx9f9FWs040ghDUx3kB-vUmnOng&usqp=CAU',
+  }
+  state.profilePage.postData.push(newPost)
+  rerenderTree(state)
 }
 
 export default state

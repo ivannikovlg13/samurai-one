@@ -10,16 +10,15 @@ import {Route,BrowserRouter, Routes} from 'react-router-dom';
 import './App.css';
 
 
-
 function App(props) {
   return (
     <BrowserRouter>
       <div className = "wrapper">
         <Header />
-        <NavBar/>
+        <NavBar state={props.state.navbarPage}/>
         <div className = "wrapper-content">
             <Routes>
-              <Route path = "/profile" element={<Profile state = {props.state.ProfilePage}/>}/>
+              <Route path = "/profile" element={<Profile state = {props.state.profilePage} addPost = {props.addPost}/>}/>
               <Route path = "/dialogs/*" element={<Dialogs  state = {props.state.dialogsPage}/>}/> 
               <Route path = "/news" element={<News />}/> 
               <Route path = "/music" element={<Music />}/> 

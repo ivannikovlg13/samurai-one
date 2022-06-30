@@ -1,7 +1,3 @@
-a{
-color: blue;
-text-decoration: none;
-}
 .dialogs {
   display: grid;
   grid-template-columns: 2fr 10fr;
@@ -19,16 +15,26 @@ text-decoration: none;
   padding-bottom: 10px;
 }
 
-.dialogsItems .dialog.active {
+.dialogsItems .dialog a {
+  color: blue;
+  text-decoration: none;
+}
+
+.dialogsItems .dialog .active {
   color: rgb(0, 255, 68);
 }
 
 .messages {
-  padding-left: 20px;
+  padding: 0 20px;
 }
-.message{
+
+.messages li:nth-child(odd) {
+  justify-content: flex-end;
+}
+
+.message {
   display: flex;
-  align-items:center;
+  align-items: center;
 }
 
 
@@ -37,6 +43,19 @@ text-decoration: none;
   height: 50px;
   border-radius: 50%;
 }
-.icon{
+
+.icon {
   width: 50px;
 }
+
+.inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  margin-bottom: 20px;
+}
+.inner textarea{
+   margin-right: 20px;
+}
+

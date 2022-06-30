@@ -4,20 +4,25 @@ import styles from './posts.module.css';
 
 
 
-const MyPosts = ({postData}) => {
-  let postItem = postData.map((post,index) => <Post key={index} message={post.message} likesCount={post.likesCount} />)
+const MyPosts = (props) => {
+  let postItem = props.postData.map((post,index) => <Post key={index} message={post.message} likesCount={post.likesCount} img={post.img} />)
+
+  let newPostElement = React.createRef()
+
+  const addPost = () => {
+    
+    let text = newPostElement.current.value
+    props.addPost(text)
+  }
   return (
     <div className={styles.posts}>
       <h3>My Posts</h3>
-      <div>
-        <div>
-          <textarea></textarea>
-        </div>
-        <div className={styles.buttons}>
-          <button>Add posts</button>
-        </div>
-        {postItem}
+      <div className ={styles.inner}>
+          <textarea className = "textarea" ref={newPostElement}></textarea>
+          <button type ="button" 
+          className ="button" onClick={addPost}>Add posts</button> 
       </div>
+      {postItem}
     </div>
   )
 }

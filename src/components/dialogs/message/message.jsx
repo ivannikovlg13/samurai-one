@@ -3,10 +3,10 @@ import styles from './../dialogs.module.css'
 
 const Message = (props) => {
   return (
-    <div className={styles.message}>
+    <li className={styles.message}>
       <img className={styles.icon} src={props.icon} alt="icon" />
-      <span>{props.message}</span> 
-    </div>
+      <span>{props.message}</span>
+    </li>
   )
 }
 

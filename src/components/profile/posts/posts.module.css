@@ -5,3 +5,7 @@
   margin-top: 20px;
   margin-bottom: 20px;
 }
+.inner{
+  display: flex;
+  align-items:center;
+}
