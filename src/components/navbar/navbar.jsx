@@ -6,8 +6,8 @@ import styles from './navbar.module.css'
 const NavBar = (props) => {
   return (
     <nav className={styles.navWrapper}>
-      <Links links = {props.state.links}/>
-      <Friends friends = {props.state.friends}/>
+      <Links links={props.state.links}/>
+      <Friends friends={props.state.friends}/>
     </nav>
 
   )
