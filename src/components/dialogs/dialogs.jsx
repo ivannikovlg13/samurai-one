@@ -10,12 +10,12 @@ const Dialogs = (props) => {
   let messagesElements = props.state.messages.map((message, index) => <Message key={index} message={message.list} icon={message.icon} />)
 
   const addPostMessage = () => {
-    props.addPostsMessage()
+    props.dispatch({type: 'ADD-POSTS-MESSAGE'})
     
   }
   const onMessageChange = () => {
     let text = createNewPost.current.value
-    props.updateNewMessageText(text)
+    props.dispatch({type:'UPDATE-NEW-MESSAGE-TEXT',newMessage:text })
   }
 
   return (

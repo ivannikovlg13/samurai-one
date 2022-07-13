@@ -18,8 +18,8 @@ function App(props) {
         <NavBar state={props.state.navbarPage}/>
         <div className = "wrapper-content">
             <Routes>
-              <Route path = "/profile" element={<Profile state = {props.state.profilePage} addPost = {props.addPost} updateNewPostText={props.updateNewPostText}/>}/>
-              <Route path = "/dialogs/*" element={<Dialogs  state = {props.state.dialogsPage} addPostsMessage ={props.addPostsMessage} onMessageText = {props.state.dialogsPage.onMessageText} updateNewMessageText={props.updateNewMessageText}/>}/> 
+              <Route path = "/profile" element={<Profile state = {props.state.profilePage} dispatch = {props.dispatch}/>}/>
+              <Route path = "/dialogs/*" element={<Dialogs  state = {props.state.dialogsPage} dispatch = {props.dispatch} onMessageText = {props.state.dialogsPage.onMessageText}/>}/> 
               <Route path = "/news" element={<News />}/> 
               <Route path = "/music" element={<Music />}/> 
               <Route path = "/settings" element={<Settings />}/> 
