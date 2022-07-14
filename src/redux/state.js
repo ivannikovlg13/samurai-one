@@ -1,5 +1,6 @@
-const ADD_POST = 'ADD-POST'
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
+import profileReducer from "./profileReducer"
+
+
 const ADD_POSTS_MESSAGE = 'ADD-POSTS-MESSAGE'
 const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT'
 
@@ -154,20 +155,9 @@ const store = {
 
 
   dispatch(action) {
-    if (action.type === ADD_POST) {
-      let newPost = {
-        id: 5,
-        message: this._state.profilePage.newPostText,
-        likesCount: 0,
-        img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHUg6Eeu3fdwd2GYFK_q0QVGCuowN3CbuyPo3x798pvx9f9FWs040ghDUx3kB-vUmnOng&usqp=CAU',
-      }
-      this._state.profilePage.postData.push(newPost)
-      this._state.profilePage.newPostText = ''
-      this._callSubscriber(this._state)
-    } else if (action.type === UPDATE_NEW_POST_TEXT) {
-      this._state.profilePage.newPostText = action.newText
-      this._callSubscriber(this._state)
-    } else if (action.type === ADD_POSTS_MESSAGE) {
+    this._state.profilePage = profileReducer(this._state.profilePage,action)
+    this._callSubscriber(this._state)
+     if (action.type === ADD_POSTS_MESSAGE) {
       let newMessage = {
         list: this._state.dialogsPage.onMessageText,
         icon: 'https://iconarchive.com/download/i94479/blackvariant/button-ui-system-apps/Messages-2.ico',
@@ -182,13 +172,11 @@ const store = {
   },
 }
 
-export const addPostActionCreator = () => ({type: ADD_POST})
+
 
 export const addPostMessageActionCreator = () => ({type: ADD_POSTS_MESSAGE})
 
-export const updateNewPostTextActionCreator = (text) => ({
-  type: UPDATE_NEW_POST_TEXT,newText: text
-})
+
 
 export const updateNewMessageTextActionCreator = (text) => ({
     type: UPDATE_NEW_MESSAGE_TEXT, newMessage: text
