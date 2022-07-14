@@ -1,3 +1,9 @@
+const ADD_POST = 'ADD-POST'
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
+const ADD_POSTS_MESSAGE = 'ADD-POSTS-MESSAGE'
+const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT'
+
+
 const store = {
   _callSubscriber() {
     console.log('Iam rerender function')
@@ -72,7 +78,7 @@ const store = {
           icon: 'https://iconarchive.com/download/i94479/blackvariant/button-ui-system-apps/Messages-2.ico',
         },
       ],
-      onMessageText: 'Text for message props'
+      onMessageText: ''
     },
     profilePage: {
       postData: [{
@@ -100,7 +106,7 @@ const store = {
           img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHUg6Eeu3fdwd2GYFK_q0QVGCuowN3CbuyPo3x798pvx9f9FWs040ghDUx3kB-vUmnOng&usqp=CAU',
         },
       ],
-      newPostText: 'Text from props'
+      newPostText: ''
     },
     navbarPage: {
       friends: [{
@@ -146,9 +152,9 @@ const store = {
     this._callSubscriber = observer
   },
 
-  
+
   dispatch(action) {
-    if (action.type === 'ADD-POST') {
+    if (action.type === ADD_POST) {
       let newPost = {
         id: 5,
         message: this._state.profilePage.newPostText,
@@ -158,10 +164,10 @@ const store = {
       this._state.profilePage.postData.push(newPost)
       this._state.profilePage.newPostText = ''
       this._callSubscriber(this._state)
-    } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+    } else if (action.type === UPDATE_NEW_POST_TEXT) {
       this._state.profilePage.newPostText = action.newText
       this._callSubscriber(this._state)
-    } else if (action.type === 'ADD-POSTS-MESSAGE') {
+    } else if (action.type === ADD_POSTS_MESSAGE) {
       let newMessage = {
         list: this._state.dialogsPage.onMessageText,
         icon: 'https://iconarchive.com/download/i94479/blackvariant/button-ui-system-apps/Messages-2.ico',
@@ -169,11 +175,24 @@ const store = {
       this._state.dialogsPage.messages.push(newMessage)
       this._state.dialogsPage.onMessageText = ''
       this._callSubscriber(this._state)
-    } else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT') {
+    } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
       this._state.dialogsPage.onMessageText = action.newMessage
       this._callSubscriber(this._state)
     }
   },
 }
+
+export const addPostActionCreator = () => ({type: ADD_POST})
+
+export const addPostMessageActionCreator = () => ({type: ADD_POSTS_MESSAGE})
+
+export const updateNewPostTextActionCreator = (text) => ({
+  type: UPDATE_NEW_POST_TEXT,newText: text
+})
+
+export const updateNewMessageTextActionCreator = (text) => ({
+    type: UPDATE_NEW_MESSAGE_TEXT, newMessage: text
+  })
+
 
 export default store

@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './dialogs.module.css'
 import DialogItem from './dialogitem/dialogitem';
 import Message from './message/message'
+import { addPostMessageActionCreator,updateNewMessageTextActionCreator } from '../../redux/state';
 
 
 const Dialogs = (props) => {
@@ -10,12 +11,12 @@ const Dialogs = (props) => {
   let messagesElements = props.state.messages.map((message, index) => <Message key={index} message={message.list} icon={message.icon} />)
 
   const addPostMessage = () => {
-    props.dispatch({type: 'ADD-POSTS-MESSAGE'})
+    props.dispatch(addPostMessageActionCreator())
     
   }
   const onMessageChange = () => {
     let text = createNewPost.current.value
-    props.dispatch({type:'UPDATE-NEW-MESSAGE-TEXT',newMessage:text })
+    props.dispatch(updateNewMessageTextActionCreator(text))
   }
 
   return (
@@ -28,7 +29,7 @@ const Dialogs = (props) => {
           {messagesElements}
         </ul>
         <div className={styles.inner}>
-          <textarea value = {props.onMessageText} onChange={onMessageChange} className="textarea" ref={createNewPost}/>
+          <textarea placeholder='Write new message' value = {props.onMessageText} onChange={onMessageChange} className="textarea" ref={createNewPost}/>
           <button onClick={addPostMessage} className="button">Add message</button>
         </div>
       </div>
