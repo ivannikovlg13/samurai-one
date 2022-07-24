@@ -1,4 +1,5 @@
 import profileReducer from "./profileReducer"
+import dialogsReducer from "./dialogsReducer"
 
 
 const ADD_POSTS_MESSAGE = 'ADD-POSTS-MESSAGE'
@@ -156,19 +157,8 @@ const store = {
 
   dispatch(action) {
     this._state.profilePage = profileReducer(this._state.profilePage,action)
+    this._state.dialogsPage = dialogsReducer(this._state.dialogsPage,action)
     this._callSubscriber(this._state)
-     if (action.type === ADD_POSTS_MESSAGE) {
-      let newMessage = {
-        list: this._state.dialogsPage.onMessageText,
-        icon: 'https://iconarchive.com/download/i94479/blackvariant/button-ui-system-apps/Messages-2.ico',
-      }
-      this._state.dialogsPage.messages.push(newMessage)
-      this._state.dialogsPage.onMessageText = ''
-      this._callSubscriber(this._state)
-    } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
-      this._state.dialogsPage.onMessageText = action.newMessage
-      this._callSubscriber(this._state)
-    }
   },
 }
 
