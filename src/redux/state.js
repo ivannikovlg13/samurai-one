@@ -2,10 +2,6 @@ import profileReducer from "./profileReducer"
 import dialogsReducer from "./dialogsReducer"
 
 
-const ADD_POSTS_MESSAGE = 'ADD-POSTS-MESSAGE'
-const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT'
-
-
 const store = {
   _callSubscriber() {
     console.log('Iam rerender function')
@@ -161,16 +157,5 @@ const store = {
     this._callSubscriber(this._state)
   },
 }
-
-
-
-export const addPostMessageActionCreator = () => ({type: ADD_POSTS_MESSAGE})
-
-
-
-export const updateNewMessageTextActionCreator = (text) => ({
-    type: UPDATE_NEW_MESSAGE_TEXT, newMessage: text
-  })
-
 
 export default store
