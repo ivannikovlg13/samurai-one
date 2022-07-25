@@ -2,21 +2,21 @@ import React from 'react';
 import styles from './dialogs.module.css'
 import DialogItem from './dialogitem/dialogitem';
 import Message from './message/message'
-import { addPostMessageActionCreator,updateNewMessageTextActionCreator } from '../../redux/dialogsReducer';
 
 
 const Dialogs = (props) => {
+  let state = props.dialogsPage
   let createNewPost = React.createRef()
-  let dialogElements = props.state.dialogs.map((dialog, index) => <DialogItem key={index} name={dialog.name} id={dialog.id} avatar={dialog.avatar} />)
-  let messagesElements = props.state.messages.map((message, index) => <Message key={index} message={message.list} icon={message.icon} />)
+  let dialogElements = state.dialogs.map((dialog, index) => <DialogItem key={index} name={dialog.name} id={dialog.id} avatar={dialog.avatar} />)
+  let messagesElements = state.messages.map((message, index) => <Message key={index} message={message.list} icon={message.icon} />)
 
-  const addPostMessage = () => {
-    props.dispatch(addPostMessageActionCreator())
+  const onaddPostMessage = () => {
+    props.addPostMessage()
     
   }
   const onMessageChange = () => {
     let text = createNewPost.current.value
-    props.dispatch(updateNewMessageTextActionCreator(text))
+    props.messageChange(text)
   }
 
   return (
@@ -30,7 +30,7 @@ const Dialogs = (props) => {
         </ul>
         <div className={styles.inner}>
           <textarea placeholder='Write new message' value = {props.onMessageText} onChange={onMessageChange} className="textarea" ref={createNewPost}/>
-          <button onClick={addPostMessage} className="button">Add message</button>
+          <button onClick={onaddPostMessage} className="button">Add message</button>
         </div>
       </div>
     </div>

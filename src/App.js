@@ -1,7 +1,7 @@
 import React from 'react'
 import Header  from './components/header/header';
 import NavBar  from './components/navbar/navbar';
-import Dialogs from './components/dialogs/dialogs';
+import DialogsContainer from './components/dialogs/dialogsContainer';
 import Profile  from './components/profile/profile';
 import Settings from './components/settings/settings';
 import Music from './components/music/music';
@@ -18,8 +18,8 @@ function App(props) {
         <NavBar state={props.state.navbarPage}/>
         <div className = "wrapper-content">
             <Routes>
-              <Route path = "/profile" element={<Profile state = {props.state.profilePage} dispatch = {props.dispatch}/>}/>
-              <Route path = "/dialogs/*" element={<Dialogs  state = {props.state.dialogsPage} dispatch = {props.dispatch} onMessageText = {props.state.dialogsPage.onMessageText}/>}/> 
+              <Route path = "/profile" element={<Profile store={props.store}/>}/>
+              <Route path = "/dialogs/*" element={<DialogsContainer  store = {props.store} />}/> 
               <Route path = "/news" element={<News />}/> 
               <Route path = "/music" element={<Music />}/> 
               <Route path = "/settings" element={<Settings />}/> 
