@@ -9,8 +9,6 @@ import { Provider } from 'react-redux';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-
-let rerenderTree = () => {  
   root.render(
     <React.StrictMode>
       <Provider store = {store} >
@@ -18,14 +16,7 @@ let rerenderTree = () => {
         </Provider>  
     </React.StrictMode>
   );
-}
 
-rerenderTree(store.getState())
-
-store.subscribe(() => {
-  let state = store.getState()
-  rerenderTree(state)
-})
 
 
 

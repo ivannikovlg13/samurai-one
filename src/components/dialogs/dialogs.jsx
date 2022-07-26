@@ -11,6 +11,7 @@ const Dialogs = (props) => {
   let messagesElements = state.messages.map((message, index) => <Message key={index} message={message.list} icon={message.icon} />)
 
   const onaddPostMessage = () => {
+  
     props.addPostMessage()
     
   }

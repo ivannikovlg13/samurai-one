@@ -33,20 +33,27 @@ const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
 const profileReducer = (state = initialStore, action) => {
   switch (action.type) {
     case ADD_POST:
-      let newPost = {
-        id: 5,
-        message: state.newPostText,
-        likesCount: 0,
-        img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHUg6Eeu3fdwd2GYFK_q0QVGCuowN3CbuyPo3x798pvx9f9FWs040ghDUx3kB-vUmnOng&usqp=CAU',
+      let stateCopy = {
+        ...state,
+        newPostText: '',
+        postData: [...state.postData, {
+          id: 5,
+          message: state.newPostText,
+          likesCount: 0,
+          img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHUg6Eeu3fdwd2GYFK_q0QVGCuowN3CbuyPo3x798pvx9f9FWs040ghDUx3kB-vUmnOng&usqp=CAU'
+        }]
       }
-      state.postData.push(newPost)
-      state.newPostText = ''
-      return state
+      return stateCopy
 
-    case UPDATE_NEW_POST_TEXT:
-      state.newPostText = action.newText
-      return state
+    case UPDATE_NEW_POST_TEXT:{
+      let stateCopy = {
+        ...state,
+        newPostText:action.newText
+      }
+      return stateCopy
+    }
     default: return state
+    
   }
 
 }

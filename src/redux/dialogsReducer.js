@@ -77,16 +77,23 @@ const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT'
 const dialogsReducer = (state = initialStore, action) => {
   switch (action.type) {
     case ADD_POSTS_MESSAGE:
-      let newMessage = {
-        list: state.onMessageText,
-        icon: 'https://iconarchive.com/download/i94479/blackvariant/button-ui-system-apps/Messages-2.ico',
+      let stateCopy = {
+        ...state,
+        onMessageText: '',
+        messages: [...state.messages, {
+          list: state.onMessageText,
+          icon: 'https://iconarchive.com/download/i94479/blackvariant/button-ui-system-apps/Messages-2.ico',
+        }]
       }
-      state.messages.push(newMessage)
-      state.onMessageText = ''
-      return state
-    case UPDATE_NEW_MESSAGE_TEXT:
-      state.onMessageText = action.newMessage
-      return state
+      return stateCopy
+    
+    case UPDATE_NEW_MESSAGE_TEXT:{
+      let stateCopy = {
+        ...state,
+        onMessageText:action.newMessage
+      }
+      return stateCopy
+    }
     default:
       return state
   }
