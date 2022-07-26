@@ -33,7 +33,7 @@ const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
 const profileReducer = (state = initialStore, action) => {
   switch (action.type) {
     case ADD_POST:
-      let stateCopy = {
+      return {
         ...state,
         newPostText: '',
         postData: [...state.postData, {
@@ -43,14 +43,13 @@ const profileReducer = (state = initialStore, action) => {
           img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHUg6Eeu3fdwd2GYFK_q0QVGCuowN3CbuyPo3x798pvx9f9FWs040ghDUx3kB-vUmnOng&usqp=CAU'
         }]
       }
-      return stateCopy
 
     case UPDATE_NEW_POST_TEXT:{
-      let stateCopy = {
+      return {
         ...state,
         newPostText:action.newText
       }
-      return stateCopy
+      
     }
     default: return state
     
