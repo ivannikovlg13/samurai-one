@@ -1,5 +1,6 @@
 import profileReducer from "./profileReducer"
 import dialogsReducer from "./dialogsReducer"
+import navbarReducer from "./navbarReducer"
 
 
 const store = {
@@ -154,6 +155,7 @@ const store = {
   dispatch(action) {
     this._state.profilePage = profileReducer(this._state.profilePage,action)
     this._state.dialogsPage = dialogsReducer(this._state.dialogsPage,action)
+    this._state.navbarPage = navbarReducer(this._state.navbarPage,action)
     this._callSubscriber(this._state)
   },
 }

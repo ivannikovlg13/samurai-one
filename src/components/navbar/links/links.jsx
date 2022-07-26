@@ -3,7 +3,8 @@ import styles from './links.module.css'
 import LinksItem from './linksItem/linksItem';
 
 const Links = (props) => {
-  let linksElements = props.links.map((link, index) => <LinksItem key = {index} path={link.path} name = {link.name}/>)
+  let state = props.navbarPage.navbarPage.links
+  let linksElements = state.map((link, index) => <LinksItem key = {index} path={link.path} name = {link.name}/>)
   return (
     <div className={styles.links} >
       {linksElements}
