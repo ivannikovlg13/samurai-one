@@ -3,6 +3,7 @@ import dialogsReducer from "./dialogsReducer"
 import navbarReducer from "./navbarReducer"
 
 
+
 const store = {
   _callSubscriber() {
     console.log('Iam rerender function')

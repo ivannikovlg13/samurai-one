@@ -12,6 +12,7 @@
 .wrapper-content{
   grid-area: p;
   border:2px solid blue;
+
 }
 .button {
   color: white;
@@ -21,6 +22,7 @@
   border-radius: 5px;
   border: 3px solid white;
   cursor: pointer;
+  font-weight: 700;
 }
 .textarea {
   resize: none;
