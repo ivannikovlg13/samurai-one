@@ -4,9 +4,7 @@ import userPhoto from '../../assets/images/user.png'
 // import * as axios from 'axios'
 
 class Users extends React.Component{
-  constructor(props){
-    super(props)
-    debugger
+  componentDidMount(){
     this.props.setUsers([{
       "name": "Nastassia_Kauharenia",
       "id": 24911,
@@ -119,9 +117,9 @@ class Users extends React.Component{
     },
     ])
   }
+
   render(){
     return (
-
       this.props.users.map(user => <div className={styles.wrapper} key={user.id}>
         <div className={styles.linksBox}>
           <img className={styles.avatar} src={user.photos.small != null ? user.photos.small : userPhoto} alt="avatar" />
