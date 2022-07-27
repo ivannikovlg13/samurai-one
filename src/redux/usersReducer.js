@@ -1,48 +1,46 @@
 let initialStore = {
-  users: [{
-      photo: 'https://toppng.com/uploads/preview/cool-avatar-transparent-image-cool-boy-avatar-11562893383qsirclznyw.png',
-      followed: true,
-      id: 1,
-      status: 'Iam RAMBO',
-      fullName: 'Alex I',
-      location: {
-        country: 'Ukraine',
-        city: 'Kyiv'
-      },
-    },
-    {
-      photo: 'https://toppng.com/uploads/preview/cool-avatar-transparent-image-cool-boy-avatar-11562893383qsirclznyw.png',
-      followed: true,
-      id: 2,
-      status: 'Iam a boss',
-      fullName: 'Dmitry K.',
-      location: {
-        country: 'Belarus',
-        city: 'Minsk'
-      },
-    },
-    {
-      photo: 'https://toppng.com/uploads/preview/cool-avatar-transparent-image-cool-boy-avatar-11562893383qsirclznyw.png',
-      followed: false,
-      id: 3,
-      status: 'Iam hot-dog',
-      fullName: 'Sergey G.',
-      location: {
-        country: 'Ukraine',
-        city: 'Dnipro'
-      },
-    },
-    {
-      photo: 'https://toppng.com/uploads/preview/cool-avatar-transparent-image-cool-boy-avatar-11562893383qsirclznyw.png',
-      followed: true,
-      id: 4,
-      status: 'Iam Laris',
-      fullName: 'Larisa I.',
-      location: {
-        country: 'Ukraine',
-        city: 'Lugansk'
-      },
-    },
+  users: [
+//     {photo: 'https://toppng.com/uploads/preview/cool-avatar-transparent-image-cool-boy-avatar-11562893383qsirclznyw.png',
+//       followed: true,
+//       id: 1,
+//       status: 'Iam RAMBO',
+//       fullName: 'Alex I',
+//       location: {
+//         country: 'Ukraine',
+//         city: 'Kyiv'
+//     },
+//     },
+//     {photo: 'https://toppng.com/uploads/preview/cool-avatar-transparent-image-cool-boy-avatar-11562893383qsirclznyw.png',
+//       followed: true,
+//       id: 2,
+//       status: 'Iam a boss',
+//       fullName: 'Dmitry K.',
+//       location: {
+//         country: 'Belarus',
+//         city: 'Minsk'
+//     },
+//     },
+//     {photo: 'https://toppng.com/uploads/preview/cool-avatar-transparent-image-cool-boy-avatar-11562893383qsirclznyw.png',
+//       followed: false,
+//       id: 3,
+//       status: 'Iam hot-dog',
+//       fullName: 'Sergey G.',
+//       location: {
+//         country: 'Ukraine',
+//         city: 'Dnipro'
+//     },
+//     },
+//     {
+// photo: 'https://toppng.com/uploads/preview/cool-avatar-transparent-image-cool-boy-avatar-11562893383qsirclznyw.png',
+//       followed: true,
+//       id: 4,
+//       status: 'Iam Laris',
+//       fullName: 'Larisa I.',
+//       location: {
+//         country: 'Ukraine',
+//         city: 'Lugansk'
+//       },
+//     },
 
   ],
   newPostText: ''
@@ -97,8 +95,9 @@ export const unFollowAC = (userId) => ({
   type: UNFOLLOW,
   userId
 })
-export const setUsersAC = () => ({
-  type: SET_USERS
+export const setUsersAC = (users) => ({
+  type: SET_USERS,
+  users
 })
 
 
